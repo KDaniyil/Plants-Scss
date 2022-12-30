@@ -1,0 +1,81 @@
+@mixin btn( $width, $height, $borderRadius ){
+    color: $mainColor1;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    width: $width;
+    height: $height;
+    border-radius: $borderRadius;
+    border: 1px solid $mainColor1;
+    background-color: $typoColorSecondary;
+    transition: all .3s ease;
+    &:hover{
+        color: $typoColorSecondary;
+        cursor: pointer;
+        background-color: $mainColor1;
+        transition: all .3s ease;
+    }
+}
+
+@mixin breakpoint($point) {
+    @if $point == "tablet"{
+        @media (min-width: $breakpoint_md) { @content; }
+    } @else if $point == "desktop"{
+        @media (min-width: $breakpoint_xxl) { @content;}
+    }
+}
+
+@mixin cardTitle($point: "mobile") {
+    color: $typoColorMain;
+    font-weight: 700;
+    @if $point == "mobile"{
+        font-size: 16px;
+        line-height: 22px;
+    } @else if $point == "desktop"{
+        font-size: 24px;
+        line-height: 33px;
+    }
+}
+
+@mixin paragraph($point: "mobile", $weight) {
+    color: $typoColorSuplemetary;
+    @if $point == "mobile"{
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: $weight;
+    } @else if $point == "desktop"{
+        font-size: 18px;
+        line-height: 30px;
+        font-weight: $weight;
+    }
+}
+@mixin mainTitle($point: "mobile"){
+    color: $typoColorMain;
+    span{
+        color: $mainColor1;
+    }
+    @if $point == "mobile"{
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 38px;
+    } @else if $point == "desktop"{
+        font-weight: 800;
+        font-size: 58px;
+        line-height: 79.11px;
+    }
+}
+@mixin sectionTitle($point : "mobile"){
+    color: $typoColorMain;
+    span{
+        color: $mainColor1;
+    }
+    @if $point == "mobile"{
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 38px;
+    } @else if $point == "desktop"{
+        font-weight: 800;
+        font-size: 45px;
+        line-height: 61px;
+    }
+}
