@@ -20,7 +20,10 @@ section{
     }
 }
 .container{
-    max-width: 1410px;
+    @include breakpoint($xxl){
+        max-width: 1410px;
+    }
+    max-width: 720px;
     margin: 0 auto;
     padding: 0 15px;
     width: 100%;
@@ -189,7 +192,7 @@ section{
                 position: absolute;
                 right: 0;
                 max-width: 50%;
-                height: 200px;
+                height: 240px;
             }
             @include breakpoint($xxl){
                 background-image: url("../images/header-main-photo_desktop.svg");
@@ -240,6 +243,9 @@ section{
             &-title{
                 margin: 10px 0 15px;
                 @include mainTitle();
+                @include breakpoint($md){
+                    max-width: 45%;
+                }
                 @include breakpoint($xxl){
                     @include mainTitle($xxl);
                     max-width: 556px;
@@ -409,6 +415,22 @@ section{
                 flex-direction: column;
                 gap: 50px;
                 margin-bottom: 30px;
+            }
+            @include breakpoint($xxl){
+                &:hover{
+                    background-image: none;
+                    background-color: $mainColor1;
+                    .service-card-desc-title {color: #FFFFFF;}
+                    .service-card-desc-txt{color: #FFFFFF;}
+                    .service-card-img.tree{background-image: url("../images/services_icons/Tree\ Planting_hover.svg");}
+                    .service-card-img.grass{background-image: url("../images/services_icons/Grass\ Cutting_hover.svg");}
+                    .service-card-img.garden{background-image: url("../images/services_icons/Garden\ Design_hover.svg");}
+                    .service-card-img.plant{background-image: url("../images/services_icons/Plant\ Growing_hover.svg");}
+                    .service-card-img.flower{background-image: url("../images/services_icons/Flower\ Scaping_hover.svg");}
+                    .service-card-img.branch{background-image: url("../images/services_icons/Branch\ cutting_hove.svg");}
+                    .service-card-img.pests{background-image: url("../images/services_icons/Pests\,\ Weeds\ Control_hover.svg");}
+                    .service-card-img.watering{background-image: url("../images/services_icons/Watering\ &\ Irrigation_hover.svg");}
+                }
             }
             &-img{
                 position: relative;

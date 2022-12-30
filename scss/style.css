@@ -71,10 +71,15 @@ section {
 }
 
 .container {
-  max-width: 1410px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 0 15px;
   width: 100%;
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1410px;
+  }
 }
 
 .row {
@@ -281,7 +286,7 @@ section {
     position: absolute;
     right: 0;
     max-width: 50%;
-    height: 200px;
+    height: 240px;
   }
 }
 @media (min-width: 1400px) {
@@ -355,6 +360,11 @@ section {
 }
 .header .header-content .content-txt-title span {
   color: #00730C;
+}
+@media (min-width: 768px) {
+  .header .header-content .content-txt-title {
+    max-width: 45%;
+  }
 }
 @media (min-width: 1400px) {
   .header .header-content .content-txt-title {
@@ -613,6 +623,42 @@ section {
     flex-direction: column;
     gap: 50px;
     margin-bottom: 30px;
+  }
+}
+@media (min-width: 1400px) {
+  .main .services .service-card:hover {
+    background-image: none;
+    background-color: #00730C;
+  }
+  .main .services .service-card:hover .service-card-desc-title {
+    color: #FFFFFF;
+  }
+  .main .services .service-card:hover .service-card-desc-txt {
+    color: #FFFFFF;
+  }
+  .main .services .service-card:hover .service-card-img.tree {
+    background-image: url("../images/services_icons/Tree Planting_hover.svg");
+  }
+  .main .services .service-card:hover .service-card-img.grass {
+    background-image: url("../images/services_icons/Grass Cutting_hover.svg");
+  }
+  .main .services .service-card:hover .service-card-img.garden {
+    background-image: url("../images/services_icons/Garden Design_hover.svg");
+  }
+  .main .services .service-card:hover .service-card-img.plant {
+    background-image: url("../images/services_icons/Plant Growing_hover.svg");
+  }
+  .main .services .service-card:hover .service-card-img.flower {
+    background-image: url("../images/services_icons/Flower Scaping_hover.svg");
+  }
+  .main .services .service-card:hover .service-card-img.branch {
+    background-image: url("../images/services_icons/Branch cutting_hove.svg");
+  }
+  .main .services .service-card:hover .service-card-img.pests {
+    background-image: url("../images/services_icons/Pests, Weeds Control_hover.svg");
+  }
+  .main .services .service-card:hover .service-card-img.watering {
+    background-image: url("../images/services_icons/Watering & Irrigation_hover.svg");
   }
 }
 .main .services .service-card-img {
