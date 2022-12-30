@@ -418,6 +418,8 @@ section{
             }
             @include breakpoint($xxl){
                 &:hover{
+                    cursor: pointer;
+                    transition: all .3s ease;
                     background-image: none;
                     background-color: $mainColor1;
                     .service-card-desc-title {color: #FFFFFF;}

@@ -627,6 +627,8 @@ section {
 }
 @media (min-width: 1400px) {
   .main .services .service-card:hover {
+    cursor: pointer;
+    transition: all 0.3s ease;
     background-image: none;
     background-color: #00730C;
   }
