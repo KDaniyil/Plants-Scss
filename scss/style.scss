@@ -3,7 +3,7 @@
 @import "./mixins";
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
 
-//GENERAL
+//!GENERAL
 *{
     box-sizing: border-box;
 }
@@ -13,17 +13,19 @@ body{
 a{
     text-decoration: none;
 }
+
 section{
     margin-top: 50px;
-    @media (min-width: $breakpoint_xxl) {
-        margin-top: 100px;
-    }
+    @include breakpoint($xxl){margin-top: 100px;}
 }
 .container{
+    @include breakpoint($md){
+        max-width: 720px;
+    }
     @include breakpoint($xxl){
         max-width: 1410px;
     }
-    max-width: 720px;
+    max-width: 375px;
     margin: 0 auto;
     padding: 0 15px;
     width: 100%;
@@ -31,7 +33,23 @@ section{
 .row{
     display: flex;
 }
-
+.btn-discover{
+    @include btn(167px, 40px, 5px);
+    margin-top: 30px;
+}
+.btn-wrapper{
+    display: flex;
+    justify-content: center;
+}
+@include breakpoint($xxl){
+    .btn-discover{
+        @include btn(190px, 50px, 5px);
+        margin-top: 50px;
+    }
+    .btn-wrapper{
+        justify-content: flex-start;
+    }
+}
 //!HEADER
 .header{
     color: $typoColorSecondary;
@@ -373,135 +391,273 @@ section{
     }
 }
 //!MAIN
-.main{
-    .services{
+//? Services
+.services{
+    &-title{
+        text-align: center;
+        @include sectionTitle($sm);
+        @include breakpoint($xxl){
+            @include sectionTitle($xxl);
+        }
+    }
+    &-txt{
+        margin: 15px 0 30px;
+        text-align: center;
+        @include paragraph($sm, 400);
+        @include breakpoint($xxl){
+            @include paragraph($xxl, 400);
+            margin: 30px 0 50px;
+        }
+    }
+    .row{
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .service-card{
+        margin-bottom: 20px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex: 1 1 100%;
+        max-width: 100%;
+        height: 116px;
+        background-image: linear-gradient(172.29deg, #FFFFFF -10.79%, #FFFFFF 94.04%);
+        box-shadow: 2px 11px 30px rgba(51, 51, 51, 0.08);
+        border-radius: 10px;
+        @include breakpoint($md){
+            flex: 1 1 50%;
+            padding: 60px 42px;
+            max-width: 330px;
+            height: 366px;
+            flex-direction: column;
+            gap: 50px;
+            margin-bottom: 30px;
+        }
+        @include breakpoint($xxl){
+            &:hover{
+                cursor: pointer;
+                transition: all .3s ease;
+                background-image: none;
+                background-color: $mainColor1;
+                .service-card-desc-title {color: #FFFFFF;}
+                .service-card-desc-txt{color: #FFFFFF;}
+                .service-card-img.tree{background-image: url("../images/services_icons/Tree\ Planting_hover.svg");}
+                .service-card-img.grass{background-image: url("../images/services_icons/Grass\ Cutting_hover.svg");}
+                .service-card-img.garden{background-image: url("../images/services_icons/Garden\ Design_hover.svg");}
+                .service-card-img.plant{background-image: url("../images/services_icons/Plant\ Growing_hover.svg");}
+                .service-card-img.flower{background-image: url("../images/services_icons/Flower\ Scaping_hover.svg");}
+                .service-card-img.branch{background-image: url("../images/services_icons/Branch\ cutting_hove.svg");}
+                .service-card-img.pests{background-image: url("../images/services_icons/Pests\,\ Weeds\ Control_hover.svg");}
+                .service-card-img.watering{background-image: url("../images/services_icons/Watering\ &\ Irrigation_hover.svg");}
+            }
+        }
+        &-img{
+            position: relative;
+            &::after {
+                content: url("../images/services_icons/XMLID_46_.svg");
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                @include breakpoint($md){
+                    content: url("../images/services_icons/XMLID_46_desktop.svg");
+                    left: 50%;
+                    top: 0;
+                    transform: translateX(-50%);
+                }
+            }
+            &.tree{
+                background-image: url("../images/services_icons/Tree\ Planting.svg");
+            }
+            &.grass{
+                background-image: url("../images/services_icons/Grass\ Cutting.svg");
+            }
+            &.garden{
+                background-image: url("../images/services_icons/Garden\ Design.svg");
+            }
+            &.plant{
+                background-image: url("../images/services_icons/Plant\ Growing.svg");
+            }
+            &.flower{
+                background-image: url("../images/services_icons/Flower\ Scaping.svg");
+            }
+            &.branch{
+                background-image: url("../images/services_icons/Branch\ cutting.svg");
+            }
+            &.pests{
+                background-image: url("../images/services_icons/Pests\,\ Weeds\ Control.svg");
+            }
+            &.watering{
+                background-image: url("../images/services_icons/Watering\ &\ Irrigation.svg");
+            }
+            background-repeat: no-repeat;
+            background-size: contain;
+            min-width: 50px;
+            height: 50px;
+            @include breakpoint($md){
+                min-width: 70px;
+                height: 70px;
+            }
+        }
+        &-desc{
+            @include breakpoint($md){
+                text-align: center;
+            }
+            &-title{
+                margin-bottom: 10px;
+                @include cardTitle($sm);
+                @include breakpoint($xxl){
+                    @include cardTitle($xxl);
+                }
+            }
+            &-txt{
+                @include paragraph($sm, 400);
+                @include breakpoint($xxl){
+                    @include paragraph($xxl, 400);
+                }
+
+            }
+        }
+    }
+}
+//? About us
+.aboutUs{
+
+    .row{
+        flex-direction: column;
+        @include breakpoint($xxl){
+            flex-direction: row;
+        }
+
+    }
+    &-img{
+        min-height: 462px;
+        position: relative;
+        &-first{
+            background-color: $mainColor1;
+            min-width: 188px;
+            height: 293px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        &-second{
+            min-width: 291px;
+            height: 358px;
+            position: absolute;
+            background-image: url("../images/man-looking-plant.jpg");
+            background-position: center;
+            background-size: contain;
+            top: 12px;
+            left: 12px;
+        }
+        &-third{
+            min-width: 241px;
+            height: 162px;
+            position: absolute;
+            background-image: url("../images/hands-holding-house-plant.jpg");
+            background-position: center;
+            background-size: contain;
+            bottom: -92px;
+            right: -41px;
+        }
+        @include breakpoint($xxl){
+            flex:0 1 50%;
+            &-first{
+                min-width: 450px;
+                height: 706px;
+            }
+            &-second{
+                min-width: 601px;
+                height: 741px;
+                top: 36px;
+                left: 24px;
+            }
+            &-third{
+                min-width: 456px;
+                height: 356px;
+                bottom: -126px;
+                right: -68px;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+    &-content{
+        @include breakpoint($xxl){
+            flex: 0 1 50%;
+            margin-left: 30px;
+        }
         &-title{
-            text-align: center;
-            @include sectionTitle($sm);
+            @include sectionTitle();
+            margin-bottom: 15px;
             @include breakpoint($xxl){
                 @include sectionTitle($xxl);
-            }
-        }
-        &-txt{
-            margin: 15px 0 30px;
-            text-align: center;
-            @include paragraph($sm, 400);
-            @include breakpoint($xxl){
-                @include paragraph($xxl, 400);
-                margin: 30px 0 50px;
-            }
-        }
-        .row{
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .service-card{
-            margin-bottom: 20px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex: 1 1 100%;
-            max-width: 100%;
-            height: 116px;
-            background-image: linear-gradient(172.29deg, #FFFFFF -10.79%, #FFFFFF 94.04%);
-            box-shadow: 2px 11px 30px rgba(51, 51, 51, 0.08);
-            border-radius: 10px;
-            @include breakpoint($md){
-                flex: 1 1 50%;
-                padding: 60px 42px;
-                max-width: 330px;
-                height: 366px;
-                flex-direction: column;
-                gap: 50px;
                 margin-bottom: 30px;
             }
+        }
+        &-text{
+            @include paragraph($sm, 400);
+            margin-bottom: 40px;
             @include breakpoint($xxl){
-                &:hover{
-                    cursor: pointer;
-                    transition: all .3s ease;
-                    background-image: none;
-                    background-color: $mainColor1;
-                    .service-card-desc-title {color: #FFFFFF;}
-                    .service-card-desc-txt{color: #FFFFFF;}
-                    .service-card-img.tree{background-image: url("../images/services_icons/Tree\ Planting_hover.svg");}
-                    .service-card-img.grass{background-image: url("../images/services_icons/Grass\ Cutting_hover.svg");}
-                    .service-card-img.garden{background-image: url("../images/services_icons/Garden\ Design_hover.svg");}
-                    .service-card-img.plant{background-image: url("../images/services_icons/Plant\ Growing_hover.svg");}
-                    .service-card-img.flower{background-image: url("../images/services_icons/Flower\ Scaping_hover.svg");}
-                    .service-card-img.branch{background-image: url("../images/services_icons/Branch\ cutting_hove.svg");}
-                    .service-card-img.pests{background-image: url("../images/services_icons/Pests\,\ Weeds\ Control_hover.svg");}
-                    .service-card-img.watering{background-image: url("../images/services_icons/Watering\ &\ Irrigation_hover.svg");}
-                }
+                @include paragraph($xxl, 400);
+                margin-bottom: 50px;
             }
-            &-img{
-                position: relative;
-                &::after {
-                    content: url("../images/services_icons/XMLID_46_.svg");
-                    position: absolute;
-                    left: 0;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    @include breakpoint($md){
-                        content: url("../images/services_icons/XMLID_46_desktop.svg");
-                        left: 50%;
-                        top: 0;
-                        transform: translateX(-50%);
+        }
+        &-cards{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .card{
+                flex: 0 1 45%;
+                min-width: 162px;
+                height: 94px;
+                box-shadow: 2px 11px 30px rgba(51, 51, 51, 0.08);
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                align-items: center;
+                padding: 15px;
+                @include breakpoint($xxl){
+                    min-width: 330px;
+                    height: 97px;
+                    box-shadow: none;
+                    &-img{
+                        width: 67px;
+                        height: 67px;
+                        background-size: 50px 50px;
                     }
+                    &-title{@include cardTitle($xxl);}
                 }
-                &.tree{
-                    background-image: url("../images/services_icons/Tree\ Planting.svg");
-                }
-                &.grass{
-                    background-image: url("../images/services_icons/Grass\ Cutting.svg");
-                }
-                &.garden{
-                    background-image: url("../images/services_icons/Garden\ Design.svg");
-                }
-                &.plant{
-                    background-image: url("../images/services_icons/Plant\ Growing.svg");
-                }
-                &.flower{
-                    background-image: url("../images/services_icons/Flower\ Scaping.svg");
-                }
-                &.branch{
-                    background-image: url("../images/services_icons/Branch\ cutting.svg");
-                }
-                &.pests{
-                    background-image: url("../images/services_icons/Pests\,\ Weeds\ Control.svg");
-                }
-                &.watering{
-                    background-image: url("../images/services_icons/Watering\ &\ Irrigation.svg");
-                }
-                background-repeat: no-repeat;
-                background-size: contain;
-                min-width: 50px;
-                height: 50px;
-                @include breakpoint($md){
-                    min-width: 70px;
-                    height: 70px;
-                }
-            }
-            &-desc{
-                @include breakpoint($md){
-                    text-align: center;
+                &-img{
+                    width: 40px;
+                    height: 40px;
+                    background-color: $mainColor1;
+                    border-radius: 50%;
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 30px 30px;
+                    &-mission{
+                        background-image: url("../images/about_icons/Mission.svg");
+                    }
+                    &-vision{
+                        background-image: url("../images/about_icons/Vision.svg");
+                    }
+                    &-support{
+                        background-image: url("../images/about_icons/Support.svg");
+                    }
+                    &-trust{
+                        background-image: url("../images/about_icons/Trust.svg");
+                    }
                 }
                 &-title{
-                    margin-bottom: 10px;
                     @include cardTitle($sm);
-                    @include breakpoint($xxl){
-                        @include cardTitle($xxl);
-                    }
-                }
-                &-txt{
-                    @include paragraph($sm, 400);
-                    @include breakpoint($xxl){
-                        @include paragraph($xxl, 400);
-                    }
-
                 }
             }
         }
     }
 }
+
 

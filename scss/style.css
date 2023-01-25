@@ -71,10 +71,15 @@ section {
 }
 
 .container {
-  max-width: 720px;
+  max-width: 375px;
   margin: 0 auto;
   padding: 0 15px;
   width: 100%;
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
 }
 @media (min-width: 1400px) {
   .container {
@@ -86,6 +91,55 @@ section {
   display: flex;
 }
 
+.btn-discover {
+  color: #00730C;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  width: 167px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #00730C;
+  background-color: #FFFFFF;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+}
+.btn-discover:hover {
+  color: #FFFFFF;
+  cursor: pointer;
+  background-color: #00730C;
+  transition: all 0.3s ease;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1400px) {
+  .btn-discover {
+    color: #00730C;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    width: 190px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #00730C;
+    background-color: #FFFFFF;
+    transition: all 0.3s ease;
+    margin-top: 50px;
+  }
+  .btn-discover:hover {
+    color: #FFFFFF;
+    cursor: pointer;
+    background-color: #00730C;
+    transition: all 0.3s ease;
+  }
+  .btn-wrapper {
+    justify-content: flex-start;
+  }
+}
 .header {
   color: #FFFFFF;
 }
@@ -559,28 +613,28 @@ section {
   }
 }
 
-.main .services-title {
+.services-title {
   text-align: center;
   color: #212529;
   font-weight: 700;
   font-size: 28px;
   line-height: 38px;
 }
-.main .services-title span {
+.services-title span {
   color: #00730C;
 }
 @media (min-width: 1400px) {
-  .main .services-title {
+  .services-title {
     color: #212529;
     font-weight: 800;
     font-size: 45px;
     line-height: 61px;
   }
-  .main .services-title span {
+  .services-title span {
     color: #00730C;
   }
 }
-.main .services-txt {
+.services-txt {
   margin: 15px 0 30px;
   text-align: center;
   color: #676767;
@@ -589,7 +643,7 @@ section {
   font-weight: 400;
 }
 @media (min-width: 1400px) {
-  .main .services-txt {
+  .services-txt {
     color: #676767;
     font-size: 18px;
     line-height: 30px;
@@ -597,11 +651,11 @@ section {
     margin: 30px 0 50px;
   }
 }
-.main .services .row {
+.services .row {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.main .services .service-card {
+.services .service-card {
   margin-bottom: 20px;
   padding: 20px;
   display: flex;
@@ -615,7 +669,7 @@ section {
   border-radius: 10px;
 }
 @media (min-width: 768px) {
-  .main .services .service-card {
+  .services .service-card {
     flex: 1 1 50%;
     padding: 60px 42px;
     max-width: 330px;
@@ -626,51 +680,51 @@ section {
   }
 }
 @media (min-width: 1400px) {
-  .main .services .service-card:hover {
+  .services .service-card:hover {
     cursor: pointer;
     transition: all 0.3s ease;
     background-image: none;
     background-color: #00730C;
   }
-  .main .services .service-card:hover .service-card-desc-title {
+  .services .service-card:hover .service-card-desc-title {
     color: #FFFFFF;
   }
-  .main .services .service-card:hover .service-card-desc-txt {
+  .services .service-card:hover .service-card-desc-txt {
     color: #FFFFFF;
   }
-  .main .services .service-card:hover .service-card-img.tree {
+  .services .service-card:hover .service-card-img.tree {
     background-image: url("../images/services_icons/Tree Planting_hover.svg");
   }
-  .main .services .service-card:hover .service-card-img.grass {
+  .services .service-card:hover .service-card-img.grass {
     background-image: url("../images/services_icons/Grass Cutting_hover.svg");
   }
-  .main .services .service-card:hover .service-card-img.garden {
+  .services .service-card:hover .service-card-img.garden {
     background-image: url("../images/services_icons/Garden Design_hover.svg");
   }
-  .main .services .service-card:hover .service-card-img.plant {
+  .services .service-card:hover .service-card-img.plant {
     background-image: url("../images/services_icons/Plant Growing_hover.svg");
   }
-  .main .services .service-card:hover .service-card-img.flower {
+  .services .service-card:hover .service-card-img.flower {
     background-image: url("../images/services_icons/Flower Scaping_hover.svg");
   }
-  .main .services .service-card:hover .service-card-img.branch {
+  .services .service-card:hover .service-card-img.branch {
     background-image: url("../images/services_icons/Branch cutting_hove.svg");
   }
-  .main .services .service-card:hover .service-card-img.pests {
+  .services .service-card:hover .service-card-img.pests {
     background-image: url("../images/services_icons/Pests, Weeds Control_hover.svg");
   }
-  .main .services .service-card:hover .service-card-img.watering {
+  .services .service-card:hover .service-card-img.watering {
     background-image: url("../images/services_icons/Watering & Irrigation_hover.svg");
   }
 }
-.main .services .service-card-img {
+.services .service-card-img {
   position: relative;
   background-repeat: no-repeat;
   background-size: contain;
   min-width: 50px;
   height: 50px;
 }
-.main .services .service-card-img::after {
+.services .service-card-img::after {
   content: url("../images/services_icons/XMLID_46_.svg");
   position: absolute;
   left: 0;
@@ -678,49 +732,49 @@ section {
   transform: translateY(-50%);
 }
 @media (min-width: 768px) {
-  .main .services .service-card-img::after {
+  .services .service-card-img::after {
     content: url("../images/services_icons/XMLID_46_desktop.svg");
     left: 50%;
     top: 0;
     transform: translateX(-50%);
   }
 }
-.main .services .service-card-img.tree {
+.services .service-card-img.tree {
   background-image: url("../images/services_icons/Tree Planting.svg");
 }
-.main .services .service-card-img.grass {
+.services .service-card-img.grass {
   background-image: url("../images/services_icons/Grass Cutting.svg");
 }
-.main .services .service-card-img.garden {
+.services .service-card-img.garden {
   background-image: url("../images/services_icons/Garden Design.svg");
 }
-.main .services .service-card-img.plant {
+.services .service-card-img.plant {
   background-image: url("../images/services_icons/Plant Growing.svg");
 }
-.main .services .service-card-img.flower {
+.services .service-card-img.flower {
   background-image: url("../images/services_icons/Flower Scaping.svg");
 }
-.main .services .service-card-img.branch {
+.services .service-card-img.branch {
   background-image: url("../images/services_icons/Branch cutting.svg");
 }
-.main .services .service-card-img.pests {
+.services .service-card-img.pests {
   background-image: url("../images/services_icons/Pests, Weeds Control.svg");
 }
-.main .services .service-card-img.watering {
+.services .service-card-img.watering {
   background-image: url("../images/services_icons/Watering & Irrigation.svg");
 }
 @media (min-width: 768px) {
-  .main .services .service-card-img {
+  .services .service-card-img {
     min-width: 70px;
     height: 70px;
   }
 }
 @media (min-width: 768px) {
-  .main .services .service-card-desc {
+  .services .service-card-desc {
     text-align: center;
   }
 }
-.main .services .service-card-desc-title {
+.services .service-card-desc-title {
   margin-bottom: 10px;
   color: #212529;
   font-weight: 700;
@@ -728,24 +782,194 @@ section {
   line-height: 22px;
 }
 @media (min-width: 1400px) {
-  .main .services .service-card-desc-title {
+  .services .service-card-desc-title {
     color: #212529;
     font-weight: 700;
     font-size: 24px;
     line-height: 33px;
   }
 }
-.main .services .service-card-desc-txt {
+.services .service-card-desc-txt {
   color: #676767;
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
 }
 @media (min-width: 1400px) {
-  .main .services .service-card-desc-txt {
+  .services .service-card-desc-txt {
     color: #676767;
     font-size: 18px;
     line-height: 30px;
     font-weight: 400;
   }
+}
+
+.aboutUs .row {
+  flex-direction: column;
+}
+@media (min-width: 1400px) {
+  .aboutUs .row {
+    flex-direction: row;
+  }
+}
+.aboutUs-img {
+  min-height: 462px;
+  position: relative;
+}
+.aboutUs-img-first {
+  background-color: #00730C;
+  min-width: 188px;
+  height: 293px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.aboutUs-img-second {
+  min-width: 291px;
+  height: 358px;
+  position: absolute;
+  background-image: url("../images/man-looking-plant.jpg");
+  background-position: center;
+  background-size: contain;
+  top: 12px;
+  left: 12px;
+}
+.aboutUs-img-third {
+  min-width: 241px;
+  height: 162px;
+  position: absolute;
+  background-image: url("../images/hands-holding-house-plant.jpg");
+  background-position: center;
+  background-size: contain;
+  bottom: -92px;
+  right: -41px;
+}
+@media (min-width: 1400px) {
+  .aboutUs-img {
+    flex: 0 1 50%;
+  }
+  .aboutUs-img-first {
+    min-width: 450px;
+    height: 706px;
+  }
+  .aboutUs-img-second {
+    min-width: 601px;
+    height: 741px;
+    top: 36px;
+    left: 24px;
+  }
+  .aboutUs-img-third {
+    min-width: 456px;
+    height: 356px;
+    bottom: -126px;
+    right: -68px;
+    background-repeat: no-repeat;
+  }
+}
+@media (min-width: 1400px) {
+  .aboutUs-content {
+    flex: 0 1 50%;
+    margin-left: 30px;
+  }
+}
+.aboutUs-content-title {
+  color: #212529;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 38px;
+  margin-bottom: 15px;
+}
+.aboutUs-content-title span {
+  color: #00730C;
+}
+@media (min-width: 1400px) {
+  .aboutUs-content-title {
+    color: #212529;
+    font-weight: 800;
+    font-size: 45px;
+    line-height: 61px;
+    margin-bottom: 30px;
+  }
+  .aboutUs-content-title span {
+    color: #00730C;
+  }
+}
+.aboutUs-content-text {
+  color: #676767;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+@media (min-width: 1400px) {
+  .aboutUs-content-text {
+    color: #676767;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
+    margin-bottom: 50px;
+  }
+}
+.aboutUs-content-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.aboutUs-content-cards .card {
+  flex: 0 1 45%;
+  min-width: 162px;
+  height: 94px;
+  box-shadow: 2px 11px 30px rgba(51, 51, 51, 0.08);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  padding: 15px;
+}
+@media (min-width: 1400px) {
+  .aboutUs-content-cards .card {
+    min-width: 330px;
+    height: 97px;
+    box-shadow: none;
+  }
+  .aboutUs-content-cards .card-img {
+    width: 67px;
+    height: 67px;
+    background-size: 50px 50px;
+  }
+  .aboutUs-content-cards .card-title {
+    color: #212529;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+  }
+}
+.aboutUs-content-cards .card-img {
+  width: 40px;
+  height: 40px;
+  background-color: #00730C;
+  border-radius: 50%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+}
+.aboutUs-content-cards .card-img-mission {
+  background-image: url("../images/about_icons/Mission.svg");
+}
+.aboutUs-content-cards .card-img-vision {
+  background-image: url("../images/about_icons/Vision.svg");
+}
+.aboutUs-content-cards .card-img-support {
+  background-image: url("../images/about_icons/Support.svg");
+}
+.aboutUs-content-cards .card-img-trust {
+  background-image: url("../images/about_icons/Trust.svg");
+}
+.aboutUs-content-cards .card-title {
+  color: #212529;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
 }/*# sourceMappingURL=style.css.map */
